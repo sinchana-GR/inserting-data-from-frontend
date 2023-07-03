@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>insert_access</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <label for="n">name</label>
+            <select name="n" id="n">
+                <option value="{{ao}}">-----</option>
+                {% for ao in n %}
+                <option value="{{ao}}">{{ao.name}}</option>
+                {% endfor %}
+            </select><br><br>
+           <!----<input type="text" name="n" id="n">-->
+            <label for="d">date</label>
+            <input type="date" name="d" id="d"><br><br>
+
+            <label for="a">author</label>
+            <input type="text" name="a" id="a"><br><br>
+
+            <input type="submit" value="insert_access">
+        </form>
+    </center>
+</body>
+</html>
