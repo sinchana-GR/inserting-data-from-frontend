@@ -65,7 +65,14 @@ def retrive_webpage(request):
         return render(request,'display_webpages.html',d1)
     return render(request,'retrive_webpage.html',d)         
 
-
+def checkbox(request):
+    LTO=Topic.objects.all()
+    d={'LTO':LTO}
+    return render(request,'checkbox.html',d)
+def radio(request):
+    RTO=Topic.objects.all()
+    d={'RTO':RTO}
+    return render(request,'radio.html',d)
 
 
 
