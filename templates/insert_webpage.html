@@ -10,15 +10,22 @@
         <h1>insert_webpage</h1>
         <form method="POST">
             {% csrf_token %}
+            <div>
             <label for="topic">topic_name</label>
+        
 
-            <select name="topic" id="topic">
+           <!----<select name="topic" id="topic">
                 <option value="{{to}}">-----</option>
+               
                 {% for to in topic %}
                 <option value="{{to}}">{{to.topic_name}}</option>
                 {% endfor %}
-            </select><br><br>
-            
+            </select><br><br>-->
+            {% for to in topic %}
+            <input type="radio" name="topic" value="{{to}}">{{to.topic_name}}
+            {% endfor %}
+           </div>
+            <br><br>
             <label for="n">name</label>
             <input type="text" name="n" id="n"><br><br>
             <label for="u">url</label>

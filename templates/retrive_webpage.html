@@ -12,15 +12,19 @@
         <form method="POST">
             {% csrf_token %}
 
-            <label for="topic">topic_name</label>
+            <label for="topic">topic_name:</label>
 
-            <select name="topic" id="topic" multiple>
+           <!---- <select name="topic" id="topic" multiple>
                 <option value="{{to}}">-----</option>
                 {% for to in LTO %}
                 <option value="{{to}}">{{to.topic_name}}</option>
+                
                 {% endfor %}
-            </select><br><br>
-
+            </select><br><br>-->
+            {% for to in LTO %}
+            <input type="radio" name="topic" value="{{to}}">{{to.topic_name}}
+            {% endfor %}
+            <br><br>
             <input type="submit" value="retrive_webpage">
 
         </form>
