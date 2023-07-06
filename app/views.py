@@ -34,24 +34,6 @@ def insert_webpage(request):
        return HttpResponse('insertion of webpage is done')
     
     return render(request,'insert_webpage.html',d)
-def insert_access(request):
-    n=WebPage.objects.all()
-    d={'n':n}
-    if request.method=='POST':
-        n=request.POST['n']
-        d=request.POST['d']
-        a=request.POST['a']
-        WO=WebPage.objects.get(name=n)
-        WO.save()
-        AO=AccessRecord.objects.get_or_create(name=WO,date=d,author=a)[0]
-        AO.save()
-        return HttpResponse('data inserted to accessrecord')
-        
-    
-    return render(request,'insert_access.html',d)
-
-
-
 def retrive_webpage(request):
     LTO=Topic.objects.all()
     d={'LTO':LTO}
@@ -65,6 +47,37 @@ def retrive_webpage(request):
         return render(request,'display_webpages.html',d1)
     return render(request,'retrive_webpage.html',d)         
 
+
+def insert_access(request):
+    n=WebPage.objects.all()
+    d1={'n':n}
+    if request.method=='POST':
+        n=request.POST['n']
+        d=request.POST['d']
+        a=request.POST['a']
+        WO=WebPage.objects.get(name=n)
+        WO.save()
+        AO=AccessRecord.objects.get_or_create(name=WO,date=d,author=a)[0]
+        AO.save()
+        return HttpResponse('data inserted to accessrecord')
+        
+    
+    return render(request,'insert_access.html',d1)
+
+
+def retrive_access(request):
+    WTO=WebPage.objects.all()
+    d1={'WTO':WTO}
+    if request.method=='POST':
+        MSTS=request.POST.getlist('n')
+
+        RWOS=AccessRecord.objects.none()
+        for i in MSTS:
+            RWOS=RWOS|WebPage.objects.filter(id=i)
+        d2={'RWOS':RWOS}
+        return render(request,'display_access.html',d2)
+    return render(request,'retrive_access.html',d1)
+  
 def checkbox(request):
     LTO=Topic.objects.all()
     d={'LTO':LTO}
@@ -74,5 +87,5 @@ def radio(request):
     d={'RTO':RTO}
     return render(request,'radio.html',d)
 
-
+    
 

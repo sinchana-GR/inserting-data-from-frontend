@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>display_access</h1>
+        <table border="3px">
+            <tr>
+                <th>name</th>
+                <th>date</th>
+                <th>author</th>
+            </tr>
+            {% for ta in RWOS %}
+            <tr>
+                <td>{{ta.name}}</td>
+                <td>{{date}}</td>
+                <td>{{author}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</body>
+</html>

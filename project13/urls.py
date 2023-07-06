@@ -27,4 +27,5 @@ urlpatterns = [
     path('retrive_webpage/',retrive_webpage,name='retrive_webpage'),
     path('checkbox/',checkbox,name='checkbox'),
     path('radio/',radio,name='radio'),
+    path('retrive_access/',retrive_access,name='retrive_access'),
 ]

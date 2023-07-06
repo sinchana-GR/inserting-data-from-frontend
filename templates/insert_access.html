@@ -10,14 +10,15 @@
         <h1>insert_access</h1>
         <form action="" method="POST">
             {% csrf_token %}
-            <label for="n">name</label>
+            <label for="n">name :</label>
             <!--<select name="n" id="n">
                 <option value="{{ao}}">-----</option>
                 {% for ao in n %}
                 <option value="{{ao}}">{{ao.name}}</option>
                 {% endfor %}
+                <input type="text" name="n" id="n">
             </select><br><br>-->
-           <input type="text" name="n" id="n">
+           
            {% for ao in n %}
            <input type="radio" value="{{ao}}">{{ao.name}}
            {% endfor %}
